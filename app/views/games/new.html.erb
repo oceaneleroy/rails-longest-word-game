@@ -1,0 +1,17 @@
+  <div class="container">
+  <h1> 🤓 Des lettres & des lettres Game 🤓 </h1>
+  <ul>
+    <% @letters.each do |letter| %>
+    <li><%= letter %></li>
+    <% end %>
+  </ul>
+
+<p><strong>What is the longest word you can find? 🧠</strong></p>
+
+<form action="/score" method="post">
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  <%= hidden_field_tag :letters, @letters %>
+  <input type="text" name="suggestion" placeholder="Write your word">
+  <input type="submit" value="SEND" id="submit">
+</form>
+</div>
